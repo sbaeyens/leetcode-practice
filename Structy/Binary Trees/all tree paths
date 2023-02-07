@@ -1,0 +1,33 @@
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const allTreePaths = (root) => {
+  // gaurd case
+  if (root === null) return []
+  // base case
+  if (root.left === null & root.right === null) return [[root.val]]
+
+  const paths = []
+
+  const leftSubPaths = allTreePaths(root.left)
+  for (let subpath of leftSubPaths) {
+    paths.push([root.val, ...subpath])
+  }
+
+  const rightSubPaths = allTreePaths(root.right)
+  for (let subpath of rightSubPaths) {
+    paths.push([root.val, ...subpath])
+  }
+
+  return paths
+
+};
+
+module.exports = {
+  allTreePaths,
+};
