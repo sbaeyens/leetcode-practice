@@ -1,0 +1,64 @@
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+const treeLevels = (root) => {
+  if (root === null) return [];
+
+  const levels = [];
+  let queue = [ {node: root, level: 0}]
+
+  while (queue.length > 0 ) {
+    let {node, level} = queue.shift()
+    console.log("node", node)
+    console.log("level", level)
+
+    if (levels.length === level) {
+      levels[level] = [node.val];
+    } else {
+      levels[level].push(node.val);
+    }
+
+    if (node.left) queue.push({node: node.left, level: level +1})
+    if (node.right) queue.push({node: node.right, level: level +1})
+
+  }
+  return levels
+};
+
+module.exports = {
+  treeLevels,
+};
+
+
+
+///////////////
+const a = new Node("a");
+const b = new Node("b");
+const c = new Node("c");
+const d = new Node("d");
+const e = new Node("e");
+const f = new Node("f");
+
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+
+//      a
+//    /   \
+//   b     c
+//  / \     \
+// d   e     f
+
+console.log(treeLevels(a)); // ->
+// [
+//   ['a'],
+//   ['b', 'c'],
+//   ['d', 'e', 'f']
+// ]
