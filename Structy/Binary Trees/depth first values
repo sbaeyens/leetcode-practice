@@ -6,7 +6,24 @@ class Node {
   }
 }
 
+// Iterative
+// const depthFirstValues = (root) => {
+//   let stack = [root]
+//   let result = []
 
+//   if (root === null) return []
+
+//   while (stack.length > 0) {
+//     let current = stack.pop()
+//     console.log(current)
+//     result.push(current.val)
+
+//     if (current.right) stack.push(current.right)
+//     if (current.left) stack.push(current.left)
+//   }
+
+//   return result
+// };
 
 //recursive
 const depthFirstValues = (root) => {
