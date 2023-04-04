@@ -1,0 +1,47 @@
+const anagrams = (s1, s2) => {
+  console.log("hello")
+  // make an obj of char counts for both words
+  let counts1 = countChars(s1)
+
+
+  // loop through word 2 and decrement values of counts1
+  for (let char of s2) {
+    if (char in counts1) {
+      counts1[char] --
+    } else {
+      return false
+    }
+  }
+
+  for (let val in counts1) {
+    if (counts1[val] !== 0) {
+      return false
+    }
+  }
+  return true
+
+};
+
+// helper function to count chars
+function countChars(string) {
+
+  let charCount = {}
+  for (let char of string) {
+    char = char.toLowerCase()
+    if (!charCount[char]) {
+      charCount[char] = 0
+    }
+    charCount[char] ++
+  }
+  return charCount
+}
+
+
+let word1 = "booobby"
+let word2 = "bbbooyo"
+
+console.log(anagrams(word1, word2))
+
+module.exports = {
+  anagrams,
+};
