@@ -1,0 +1,40 @@
+const uncompress = (s) => {
+  let result = []
+  let i = 0
+  let j = 0
+  let numbers = '0123456789'
+
+  while (j < s.length) {
+    if (numbers.includes(s[j])) {
+      j += 1
+    } else {
+      let num = Number(s.slice(i,j))
+      console.log("num", num)
+      console.log(s[j])
+      for (let count = 0; count < num; count++) {
+        result.push(s[j])
+      }
+      j++
+      i=j
+
+    }
+  }
+  return result.join("")
+};
+
+// create 2 pointers i and j
+// start both pointers at index 0
+// move pointer j check if num
+// if no, slice from i to j and multiply that by s[j]and push to arr. Then bring i to math j
+// move forward j
+// return
+
+            //          i
+console.log(uncompress("3n12e2z")); // -> 'nnneeeeeeeeeeeezz'
+//                      -j
+
+
+
+module.exports = {
+  uncompress,
+};
