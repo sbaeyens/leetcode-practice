@@ -1,0 +1,38 @@
+const mostFrequentChar = (s) => {
+  // variables to hold currentLetter & currentCount
+  let currentLetter
+  let currentCount = 0
+
+  //create count obj using helper function
+  let count = countChars(s)
+
+  // loop through count obj and check against current highest
+  for (let char in count) {
+    if (count[char] > currentCount) {
+      currentCount = count[char]
+      currentLetter = char
+    }
+  }
+
+  return currentLetter
+
+};
+
+// helper function to count chars
+function countChars(string) {
+  let count = {}
+  for (let char of string) {
+    char = char.toLowerCase()
+    if (!(char in count)) {
+      count[char] = 0
+    }
+    count[char] ++
+  }
+  return count
+}
+
+console.log(countChars("tteeoofkeett"))
+
+module.exports = {
+  mostFrequentChar,
+};
