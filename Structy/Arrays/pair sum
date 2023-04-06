@@ -1,0 +1,31 @@
+const pairSum = (numbers, targetSum) => {
+  // plan:
+  // create a hash map of { num:index }
+  // create a var to hold the complement of current num (eg target - num)
+  // loop through array to create hashmap.
+      // for each num, check if complement exists in hashmap and if so return index of hashmap and current index
+
+  let currComplement
+  let numsObj = {}
+  let result = []
+
+  for (let i = 0; i < numbers.length; i++) {
+    let num = numbers[i]
+    currComplement = targetSum - num
+
+    if (currComplement in numsObj) {
+      result.push(numsObj[currComplement])
+      result.push(i)
+      return result
+    } else {
+      numsObj[numbers[i]] = i
+      console.log(numsObj)
+    }
+  }
+};
+
+console.log(pairSum([3, 2, 5, 4, 1], 8)); // -> [0, 2]
+
+module.exports = {
+  pairSum,
+};
