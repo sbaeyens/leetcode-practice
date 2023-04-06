@@ -1,0 +1,17 @@
+const pairProduct = (numbers, targetProduct) => {
+  // make a hashmap that holds the {num:idx}
+
+  let numMap = {};
+
+  for (let i = 0; i < numbers.length; i++) {
+    let num = numbers[i];
+    let complement = targetProduct / num;
+    if (complement in numMap) {
+      return [numMap[complement], i];
+    } else {
+      numMap[num] = i;
+    }
+  }
+};
+
+console.log(pairProduct([3, 2, 5, 4, 1], 8)); // -> [1, 3]
