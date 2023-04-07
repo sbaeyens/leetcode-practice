@@ -1,0 +1,33 @@
+const intersection = (a, b) => {
+  // plan:
+  //create empty results arr
+  // create a set to hold each item in a
+  // loop through the second and check if each item exists in set
+    // if so push into results arr
+  // return results arr
+
+  let result = []
+
+  let setA = new Set()
+  for (let num of a) {
+    if (!setA.has(num)) {
+      setA.add(num)
+    }
+  }
+  console.log(setA)
+
+  for (let num of b) {
+    if (setA.has(num)) {
+      result.push(num)
+    }
+  }
+  return result
+};
+
+console.log(intersection([4,2,1], [1,2,4,6])) // -> [1,2,4]
+console.log(intersection([0,1,2], [10,11])) // -> []
+
+
+module.exports = {
+  intersection,
+};
