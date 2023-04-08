@@ -1,0 +1,44 @@
+
+
+
+
+// Seans first solution
+const fiveSort = (nums) => {
+  let pointerA = 0
+  let pointerB = nums.length -1
+  // console.log(pointerA)
+  // console.log(nums[pointerB])
+  while (pointerA < pointerB) {
+    while (nums[pointerA] !== 5) {
+      pointerA ++
+    }
+    while (nums[pointerB] === 5) {
+      pointerB --
+    }
+    nums[pointerA] = nums[pointerB]
+    nums[pointerB] = 5
+    pointerA++
+    pointerB--
+
+  }
+
+  return nums
+};
+
+console.log(fiveSort([5, 2, 5, 6, 5, 1, 10, 2, 5, 5]));
+// -> [2, 2, 10, 6, 1, 5, 5, 5, 5, 5]
+
+
+
+
+// plan create 2 pointers: pointer a and b. Start a at front of array and b at end
+// while index of pointer A < B keep running
+// move pointerA until it equals 5
+// move pointerB until it is not = 5
+// swap locations of each item in the array
+// return the array
+
+
+module.exports = {
+  fiveSort,
+};
