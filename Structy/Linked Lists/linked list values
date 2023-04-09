@@ -1,0 +1,42 @@
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+//recursive
+// const linkedListValues = (head) => {
+//   if (head === null) return
+//   result = []
+//   nodeVal = head.val
+//   result.push(nodeVal)
+//   return linkedListValues(head.next)
+// };
+
+//iterative
+const linkedListValues = (head) => {
+  result = []
+  let current = head
+  while (current !== null ) {
+    result.push(current.val)
+    current = current.next
+  }
+  return result
+};
+
+/// TEST CASE 1
+const x = new Node("x");
+const y = new Node("y");
+
+x.next = y;
+
+// x -> y
+
+console.log(linkedListValues(x)); // -> [ 'x', 'y' ]
+
+
+
+module.exports = {
+  linkedListValues,
+};
