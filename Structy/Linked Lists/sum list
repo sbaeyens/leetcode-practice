@@ -1,0 +1,43 @@
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+
+//  ITERATIVE SOLUTION //
+// const sumList = (head) => {
+//   // create variable to hold sum and set it to 0
+//   // visit each node in linked list add to sum
+//   let sum = 0
+//   let current = head
+//   while (current !== null) {
+//     sum += current.val
+//     current = current.next
+//   }
+//   return sum
+
+// };
+
+// RECURSIVE SOLUTION //
+const sumList = (head) => {
+  // base case
+  if (head === null) return 0
+  return head.val + sumList(head.next)
+};
+
+
+// TEST CASES
+const x = new Node(38);
+const y = new Node(4);
+
+x.next = y;
+
+// 38 -> 4
+
+sumList(x); // 42
+
+module.exports = {
+  sumList,
+};
