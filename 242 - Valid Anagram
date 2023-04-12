@@ -1,0 +1,23 @@
+var isAnagram = function(s, t) {
+    let sCount = countBuilder(s)
+
+    for (let char of t) {
+      if (sCount[char]) sCount[char]--
+      else return false
+    }
+
+    for (let count in sCount) {
+      if (sCount[count] !== 0) return false
+    }
+    return true
+};
+
+const countBuilder = (word) => {
+  let count = {}
+  for (let char of word) {
+    if (!count[char]) count[char] = 0
+    count[char]++
+  }
+
+  return count
+}
