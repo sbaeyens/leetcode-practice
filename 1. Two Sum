@@ -1,0 +1,22 @@
+var twoSum = function(nums, target) {
+    let numLocations = {}
+    let results = []
+    for (let i = 0; i < nums.length; i++) {
+        currentNum = nums[i]
+        complement = target - currentNum
+
+        if (complement in numLocations) return [numLocations[complement], i]
+        else numLocations[currentNum] = i
+    }
+    return [0,0]
+};
+
+// create obj to store pair as we move through arr {num: index}
+// empty result arr
+// loop through array and for each element:
+    // check if pair exists in obj, if yes, return push value of matching key & current index to result arr and return
+    // add key value pair to obj
+// return false
+
+// Input: nums = [3,2,4], target = 6
+// Output: [1,2]
