@@ -1,0 +1,35 @@
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+// iterative solution
+const reverseList = (head) => {
+
+  let prev = null
+  let curr = head
+  // if (head.next === null) return head.val
+
+  while (curr !== null) {
+    let next = curr.next  // save next in var so pointer can be moved
+    curr.next = prev // set pointer to point towards prev
+    prev = curr
+    curr = next
+
+  }
+
+  return prev
+
+};
+
+
+
+
+// reverseList(a); // f -> e -> d -> c -> b -> a
+
+
+module.exports = {
+  reverseList,
+};
