@@ -1,0 +1,41 @@
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.next = null;
+//   }
+// }
+
+
+
+
+
+
+
+
+// my first solution
+const zipperLists = (head1, head2) => {
+  let head = head1
+  let curr1 = head1
+  let curr2 = head2
+  let counter = 1
+  let nextHolder
+
+  while (curr1 !== null && curr2 !== null) {
+    if (counter % 2 === 1) { // odd enters list 1
+      let nextHolder = curr1.next
+      curr1.next = curr2
+      curr1 = nextHolder
+    } else {  // even enters list 2
+      let nextHolder = curr2.next
+      curr2.next = curr1
+      curr2 = nextHolder
+    }
+    counter ++
+  }
+  return head
+
+};
+
+module.exports = {
+  zipperLists,
+};
