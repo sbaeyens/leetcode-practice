@@ -1,0 +1,27 @@
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+// Seans first solve
+const createLinkedList = (values) => {
+  let dummyHead = new Node (null)
+  let prevVal = dummyHead
+  for (let val of values) {
+    let newNode = new Node(val)
+    prevVal.next = newNode
+    prevVal = newNode
+  }
+  return dummyHead.next
+};
+
+// plan:
+// create dummy head
+// have node.next point to next item in array
+// return dummy head.next
+
+module.exports = {
+  createLinkedList,
+};
