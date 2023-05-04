@@ -6,7 +6,15 @@
 //   }
 // }
 
-
+// RECURSIVE - SEANS FIRST SOLVE
+// const treeValueCount = (root, target) => {
+//   // base case
+//   if (root === null) return 0
+//   let currentVal = (root.val === target) ? 1 : 0
+//   let rightBranch = treeValueCount(root.right, target)
+//   let leftBranch = treeValueCount(root.left, target)
+//   return currentVal + rightBranch + leftBranch
+// };
 
 // ITERATIVE
 const treeValueCount = (root, target) => {
