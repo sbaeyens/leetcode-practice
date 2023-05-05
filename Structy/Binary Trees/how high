@@ -1,0 +1,19 @@
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const howHigh = (node) => {
+  if (node === null) return -1
+  let leftTreeHeight = howHigh(node.left)
+  let rightTreeHeight = howHigh(node.right)
+  let currentHeight = Math.max(leftTreeHeight, rightTreeHeight)
+  return 1 + currentHeight
+};
+
+module.exports = {
+  howHigh,
+};
